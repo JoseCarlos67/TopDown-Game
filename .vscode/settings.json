@@ -54,7 +54,17 @@
         "ProjectSettings/": true,
         "UserSettings/": true,
         "temp/": true,
-        "Temp/": true
+        "Temp/": true,
+        "Assets/Animation": true,
+        "Assets/Scenes": true,
+        "Assets/Sprites": true,
+        "Assets/UI": true,
+        "Packages": true,
+        ".vscode": true,
+        "**/*.gitignore": true,
+        "**/*csproj": true,
+        "**/*.md": true
     },
-    "dotnet.defaultSolution": "TopDown.sln"
+    "dotnet.defaultSolution": "TopDown.sln",
+    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace"
 }
