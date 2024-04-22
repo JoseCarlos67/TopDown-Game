@@ -10,7 +10,7 @@ public class DialogueSettings : ScriptableObject
 	
 	[Header("Dialogue")]
 	public string actorName;
-	public Sprite speakerSprite;
+	public Sprite actorSprite;
 	public string sentence;
 	
 	public List<Sentences> dialogue = new();
@@ -20,7 +20,7 @@ public class DialogueSettings : ScriptableObject
 public class Sentences
 {
 	public string actorName;
-	public Sprite profile;
+	public Sprite actorSprite;
 	public Languages sentence;
 }
 
@@ -46,7 +46,7 @@ public class Languages
 		
 		Sentences sentence = new();
 		sentence.actorName = dialogueSetting.actorName;
-		sentence.profile = dialogueSetting.speakerSprite;
+		sentence.actorSprite = dialogueSetting.actorSprite;
 		sentence.sentence = language;
 		
 		if(GUILayout.Button("Create dialogue"))
@@ -56,7 +56,7 @@ public class Languages
 				dialogueSetting.dialogue.Add(sentence);
 				
 				dialogueSetting.actorName = "";
-				dialogueSetting.speakerSprite = null;
+				dialogueSetting.actorSprite = null;
 				dialogueSetting.sentence = "";
 			}
 		}

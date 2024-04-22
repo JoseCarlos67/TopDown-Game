@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 	private bool _isRunning;
 	private bool _isRolling;
 	
-	public Vector2 direction { get => _direction; set => _direction = value; }
+	public Vector2 Direction { get => _direction; set => _direction = value; }
 	public bool isRunning { get => _isRunning; set => _isRunning = value; }
 	public bool IsRolling { get => _isRolling; set => _isRolling = value; }
 

@@ -20,7 +20,7 @@ public class PlayerAnimation : MonoBehaviour
 	#region Movement
 		void OnMove()
 		{
-			if(_player.direction.sqrMagnitude > 0)
+			if(_player.Direction.sqrMagnitude > 0)
 			{
 				if(_player.IsRolling)
 				{
@@ -35,12 +35,12 @@ public class PlayerAnimation : MonoBehaviour
 				_animator.SetInteger("transition", 0);
 			}
 			
-			if(_player.direction.x > 0)
+			if(_player.Direction.x > 0)
 			{
 				transform.eulerAngles = new Vector2(0, 0);
 			}
 			
-			if(_player.direction.x < 0)
+			if(_player.Direction.x < 0)
 			{
 				transform.eulerAngles = new Vector2(0, 180);
 			}

@@ -14,18 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actor: {fileID: 0}
   actorName: 
-  speakerSprite: {fileID: 0}
+  actorSprite: {fileID: 0}
   sentence: 
   dialogue:
-  - actorName: 
-    profile: {fileID: 21300000, guid: f7823febfed492f4bbb7d5c9814e39ec, type: 3}
+  - actorName: Npc
+    actorSprite: {fileID: 21300000, guid: 1e8c6de47c186432eb43790183ce6bae, type: 3}
     sentence:
-      portuguese: TEste de fala
-      english: 
-      spanish: 
-  - actorName: Npc 1
-    profile: {fileID: 21300000, guid: f1c0677056cde74d69d9bb9f34dcbf19, type: 3}
+      portuguese: "Ol\xE1"
+      english: Hello
+      spanish: Hola
+  - actorName: Player
+    actorSprite: {fileID: -1788803997, guid: 724a9806f0a5fde6e8904a33e0e68a79, type: 3}
     sentence:
-      portuguese: Eu sou um machado
-      english: 
+      portuguese: Tudo bem?
+      english: How are you?
+      spanish: Hola que ta?
+  - actorName: NPC
+    actorSprite: {fileID: 0}
+    sentence:
+      portuguese: I`m fine!
+      english: I`m fine!
       spanish: 
