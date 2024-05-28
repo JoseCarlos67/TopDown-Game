@@ -60,6 +60,7 @@
         "Assets/Sprites": true,
         "Assets/UI": true,
         "Packages": true,
+        "Assets/Prefabs": true,
         ".vscode": true,
         "**/*.gitignore": true,
         "**/*csproj": true,
