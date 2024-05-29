@@ -13,11 +13,14 @@ public class Player : MonoBehaviour
 	private bool _isRunning;
 	private bool _isRolling;
 	private bool _isCutting;
+	private bool _isDigging;
+	[SerializeField]private int _handlingObj;
 	
 	public Vector2 Direction { get => _direction; set => _direction = value; }
 	public bool IsRunning { get => _isRunning; set => _isRunning = value; }
 	public bool IsRolling { get => _isRolling; set => _isRolling = value; }
 	public bool IsCutting { get => _isCutting; set => _isCutting = value; }
+	public bool IsDigging { get => _isDigging; set => _isDigging = value; }
 
 	private void Start()
 	{
@@ -27,10 +30,20 @@ public class Player : MonoBehaviour
 	
 	private void Update()
 	{
+		if(Input.GetKeyDown(KeyCode.Alpha1))
+		{
+			_handlingObj = 1;
+		}
+		if(Input.GetKeyDown(KeyCode.Alpha2))
+		{
+			_handlingObj = 2;
+		}
+	
 		OnInput();
 		OnRun();
 		OnRoll();
 		OnCutting();
+		OnDigging();
 	}
 	
 	private void FixedUpdate()
@@ -77,15 +90,35 @@ public class Player : MonoBehaviour
 	#region Actions
 		void OnCutting()
 		{
-			if(Input.GetMouseButtonDown(0))
+			if(_handlingObj == 1)
 			{
-				_isCutting = true;
-				_speed = 0;
-			} 
-			if(Input.GetMouseButtonUp(0)) 
+				if(Input.GetMouseButtonDown(0))
+				{
+					IsCutting = true;
+					_speed = 0;
+				} 
+				if(Input.GetMouseButtonUp(0)) 
+				{
+					IsCutting = false;
+					_speed = _initialSpeed;
+				}
+			}
+		}
+		
+		void OnDigging()
+		{
+			if(_handlingObj == 2)
 			{
-				_isCutting = false;
-				_speed = _initialSpeed;
+				if(Input.GetMouseButtonDown(0))
+				{
+					IsDigging = true;
+					_speed = 0;
+				} 
+				if(Input.GetMouseButtonUp(0)) 
+				{
+					IsDigging = false;
+					_speed = _initialSpeed;
+				}
 			}
 		}
 	
