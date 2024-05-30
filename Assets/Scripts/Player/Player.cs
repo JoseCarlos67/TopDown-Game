@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 	private bool _isRolling;
 	private bool _isCutting;
 	private bool _isDigging;
+	private bool _isWatering;
 	[SerializeField]private int _handlingObj;
 	
 	public Vector2 Direction { get => _direction; set => _direction = value; }
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
 	public bool IsRolling { get => _isRolling; set => _isRolling = value; }
 	public bool IsCutting { get => _isCutting; set => _isCutting = value; }
 	public bool IsDigging { get => _isDigging; set => _isDigging = value; }
+	public bool IsWatering { get => _isWatering; set => _isWatering = value; }
 
 	private void Start()
 	{
@@ -38,12 +40,17 @@ public class Player : MonoBehaviour
 		{
 			_handlingObj = 2;
 		}
+		if(Input.GetKeyDown(KeyCode.Alpha3))
+		{
+			_handlingObj = 3;
+		}
 	
 		OnInput();
 		OnRun();
 		OnRoll();
 		OnCutting();
 		OnDigging();
+		OnWatering();
 	}
 	
 	private void FixedUpdate()
@@ -117,6 +124,23 @@ public class Player : MonoBehaviour
 				if(Input.GetMouseButtonUp(0)) 
 				{
 					IsDigging = false;
+					_speed = _initialSpeed;
+				}
+			}
+		}
+		
+		void OnWatering()
+		{
+			if(_handlingObj == 3)
+			{
+				if(Input.GetMouseButtonDown(0))
+				{
+					IsWatering = true;
+					_speed = 0;
+				}
+				if(Input.GetMouseButtonUp(0)) 
+				{
+					IsWatering = false;
 					_speed = _initialSpeed;
 				}
 			}
