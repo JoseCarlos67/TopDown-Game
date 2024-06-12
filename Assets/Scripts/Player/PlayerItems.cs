@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerItems : MonoBehaviour
 {
 	[SerializeField] private int _totalWood;
-	[SerializeField] private int _currentWater;
-	private int _waterLimit = 50;
+	[SerializeField] private float _currentWater;
+	private float _waterLimit = 50;
 
 	public int TotalWood { get => _totalWood; set => _totalWood = value; }
-	public int TotalWater { get => _currentWater; }
+	public float TotalWater { get => _currentWater; set => _currentWater = value; }
 	
 	public void WaterLimit(int water)
 	{

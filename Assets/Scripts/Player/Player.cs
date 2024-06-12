@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private float _initialSpeed;
 	
 	private Rigidbody2D _rigidbody2D;
+	private PlayerItems _playerItems;
 	
 	private Vector2 _direction;
 	private bool _isRunning;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		_rigidbody2D = GetComponent<Rigidbody2D>();
+		_playerItems = GetComponent<PlayerItems>();
 		_initialSpeed = _speed;
 	}
 	
@@ -131,17 +133,23 @@ public class Player : MonoBehaviour
 		
 		void OnWatering()
 		{
-			if(_handlingObj == 3)
-			{
-				if(Input.GetMouseButtonDown(0))
+			if(_handlingObj == 3){
+				if(_handlingObj == 3)
 				{
-					IsWatering = true;
-					_speed = 0;
-				}
-				if(Input.GetMouseButtonUp(0)) 
-				{
-					IsWatering = false;
-					_speed = _initialSpeed;
+					if(Input.GetMouseButtonDown(0) && _playerItems.TotalWater > 0)
+					{
+						
+						IsWatering = true;
+						_speed = 0;
+					}
+					if(Input.GetMouseButtonUp(0) || _playerItems.TotalWater < 0) 
+					{
+						IsWatering = false;
+						_speed = _initialSpeed;
+					}
+					if(IsWatering) {
+						_playerItems.TotalWater -= 0.001f;
+					}
 				}
 			}
 		}

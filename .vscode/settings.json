@@ -66,6 +66,7 @@
         "**/*csproj": true,
         "**/*.md": true
     },
-    "dotnet.defaultSolution": "TopDown.sln",
-    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace"
+    "dotnet.defaultSolution": "TopDown-Game.sln",
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.codeLens": false
 }
